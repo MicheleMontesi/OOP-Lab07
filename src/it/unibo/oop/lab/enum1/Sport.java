@@ -14,4 +14,6 @@ public enum Sport {
      * declare the following sports: - basket - soccer - tennis - bike - F1 -
      * motogp - volley
      */
+	Basket, Soccer, Tennis, Bike, F1, MotoGP, Volley;
+	
 }

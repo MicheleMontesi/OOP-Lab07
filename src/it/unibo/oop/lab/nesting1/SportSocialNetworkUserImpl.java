@@ -53,12 +53,12 @@ public class SportSocialNetworkUserImpl<U extends User> extends SocialNetworkUse
      * TODO: initialize properly these sports
      */
     static {
-        SOCCER = null;
-        F1 = null;
-        MOTOGP = null;
-        VOLLEY = null;
-        BASKET = null;
-        BIKE = null;
+        SOCCER = new Sport("Soccer");
+        F1 = new Sport("F1");
+        MOTOGP = new Sport("MotoGP");
+        VOLLEY = new Sport("Volley");
+        BASKET = new Sport("Basket");
+        BIKE = new Sport("Bike");
     }
 
     /**
@@ -114,7 +114,7 @@ public class SportSocialNetworkUserImpl<U extends User> extends SocialNetworkUse
      */
     // TODO
     public void addSport(final Sport sport) {
-
+    	this.sports.add(sport);
     }
 
     /**
@@ -126,7 +126,7 @@ public class SportSocialNetworkUserImpl<U extends User> extends SocialNetworkUse
      */
     // TODO
     public boolean hasSport(final Sport s) {
-        return false;
+       return this.sports.contains(s);
     }
 
     /*
@@ -142,9 +142,42 @@ public class SportSocialNetworkUserImpl<U extends User> extends SocialNetworkUse
          * Redefine equals so that two sports are equal only if they feature the
          * very same name. Remember that you must also redefine hashCode()!
          */
-        @Override
+    	private String name;
+    	private int hash;
+    	
+        public Sport(String name) {
+			super();
+			this.name = name;
+		}
+
+		@Override
         public boolean equals(final Object o) {
-            return false;
-        }
+			if (o == null) {
+				return false;
+			}
+			
+			if (o.getClass() != this.getClass()) {
+				return false;
+			}
+			
+			final Sport other = (Sport) o;
+			
+			if ((this.name == null) ? (other.name != null) : !this.name.equals(other.name)) {
+				return false;
+			}
+			
+			if (this.hash != other.hash) {
+				return false;
+			}
+			
+			return true;
+		}
+		
+		public int hashCode() {
+			if (this.hash == 0) {
+				hash = this.name.hashCode();
+			}
+			return this.hash;
+		}
     }
 }

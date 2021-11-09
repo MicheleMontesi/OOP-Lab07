@@ -1,5 +1,10 @@
 package it.unibo.oop.lab.enum1;
 
+import it.unibo.oop.lab.enum1.SportSocialNetworkUserImpl;
+import it.unibo.oop.lab.socialnetwork.SocialNetworkUser;
+import it.unibo.oop.lab.socialnetwork.SocialNetworkUserImpl;
+import it.unibo.oop.lab.socialnetwork.User;
+
 /**
  * This is going to act as a test for
  * {@link it.unibo.oop.lab.enum1.SportSocialNetworkUserImpl}
@@ -24,6 +29,27 @@ public final class TestSportByEnumeration {
          * 
          * By now, you know how to do it
          */
-        // TODO
+    	final SportSocialNetworkUserImpl<User> dcassani = new SportSocialNetworkUserImpl<>("Davide", "Cassani", "dcassani", 53);
+        final SportSocialNetworkUserImpl<User> becclestone = new SportSocialNetworkUserImpl<>("Bernie", "Ecclestone", "becclestone", 83);
+        final SportSocialNetworkUserImpl<User> falonso = new SportSocialNetworkUserImpl<>("Fernando", "Alonso", "falonso", 34);
+
+        falonso.addSport(Sport.F1);
+        falonso.addSport(Sport.Soccer);
+        System.out.println("Alonso practices F1: " + falonso.hasSport(Sport.F1));
+        System.out.println("Alonso does not like volley: " + !falonso.hasSport(Sport.Volley));
+        
+        dcassani.addSport(Sport.Bike);
+        dcassani.addSport(Sport.F1);
+        dcassani.addSport(Sport.MotoGP);
+        System.out.println("Cassani has been a professional biker: "
+                + dcassani.hasSport(Sport.Bike));
+        System.out.println("Cassani does not like soccer: " + !dcassani.hasSport(Sport.Soccer));
+        
+        becclestone.addSport(Sport.F1);
+        becclestone.addSport(Sport.Basket);
+        System.out.println("Bernie's the boss when it comes to F1: "
+                + becclestone.hasSport(Sport.F1));
+        System.out.println("Bernie does love playing also basket: "
+                + becclestone.hasSport(Sport.Basket));
     }
 }
