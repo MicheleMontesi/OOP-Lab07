@@ -3,11 +3,8 @@
  */
 package it.unibo.oop.lab.enum2;
 
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
-
-import javax.swing.text.html.HTMLDocument.Iterator;
 
 import it.unibo.oop.lab.socialnetwork.SocialNetworkUserImpl;
 import it.unibo.oop.lab.socialnetwork.User;

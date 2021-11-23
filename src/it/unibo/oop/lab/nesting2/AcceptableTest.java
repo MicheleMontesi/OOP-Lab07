@@ -8,8 +8,6 @@ import java.util.List;
 
 import org.junit.Test;
 
-import it.unibo.oop.lab.nesting2.Acceptor.ElementNotAcceptedException;
-
 /**
  * This is the JUnit test for {@link it.unibo.oop.lab.nesting2.Acceptable}
  * implementation.
